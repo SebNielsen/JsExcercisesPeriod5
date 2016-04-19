@@ -135,12 +135,14 @@ DBaaS delivers database functionality similar to what is found in relational dat
 Since Firebase isn’t just any ordinary database, it is a real-time, scalable backend, which provide the tools you need to quickly build rich, collaborative applications that can serve millions of users, only developing client code. Firebase even provides the possibility for authentication. The reasons above describes why i think you should consider using Firebase in your projects.
 
 ###8: Explain the pros & cons of using a Backend as a Service Provider like Firebase.
+
 #####pros:
 - Scalable
 - Flexible
 - Easy to use
 - Possibility for authentication
 - Possibility for hosting
+
 #####cons:
 - Lack of control over network performance issues, such as unacceptable latency and application failures.
 - You have to pay for the service.
