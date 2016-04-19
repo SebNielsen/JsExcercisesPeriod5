@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="chat">
+  <head>
+    <meta charset="utf-8">
+    <title>Mean chat</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body ng-controller="mainController as main">
+    <div class="container" style="padding-top: 60px;">
+      <h1>Mean chat</h1>
+      <div class="row">
+          <div class="eight columns">
+            <ul class="messages">
+              <li class="message" ng-repeat="message in main.messages" smooth-scroll duration="500" scroll-if="{{ $last }}">
+                <p>{{message.body}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="four columns">
+            <h5>Online Users</h5>
+            <ul ng-show="main.isAuthenticated" class="users">
+              <li class="user" ng-repeat="user in main.users track by $index" smooth-scroll duration="500" scroll-if="{{ $last }}">
+                <p>{{user}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="bottom">
+      <div class="container">
+        <form ng-show="!main.isAuthenticated" ng-submit="main.login()">
+          <div class="ten columns input-message">
+            <input type="text" ng-model="main.userName" placeholder="Type username">
+          </div>
+          <div class="two columns">
+            <button class="button-primary">Submit</button>
+          </div>
+        </form>
+        <form ng-show="main.isAuthenticated" ng-submit="main.sendMessage()">
+          <div class="ten columns input-message">
+            <input type="text" ng-model="main.messageInput">
+          </div>
+          <div class="two columns">
+            <button class="button-primary">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
